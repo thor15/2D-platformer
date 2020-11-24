@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MovementScript : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     private Rigidbody personRB;
     private bool isOnGround;
     private Vector3 offest;
+    private bool canEndLevel = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,10 @@ public class MovementScript : MonoBehaviour
             personRB.AddForce(Vector3.up * 10, ForceMode.Impulse);
             isOnGround = false;
         }
+        if(Input.GetKeyDown(KeyCode.S) && canEndLevel)
+        {
+            Debug.Log("level over");
+        }
         mainCamera.transform.position = transform.position + offest;
     }
 
@@ -41,6 +47,22 @@ public class MovementScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Portal"))
+        {
+            canEndLevel = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Portal"))
+        {
+            canEndLevel = false;
         }
     }
 }
