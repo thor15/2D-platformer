@@ -9,7 +9,7 @@ public class MovementScript : MonoBehaviour
     private Rigidbody personRB;
     private bool isOnGround;
     private Vector3 offest;
-    private bool canEndLevel = false;
+    public bool canEndLevel = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,10 +35,7 @@ public class MovementScript : MonoBehaviour
             personRB.AddForce(Vector3.up * 10, ForceMode.Impulse);
             isOnGround = false;
         }
-        if(Input.GetKeyDown(KeyCode.S) && canEndLevel)
-        {
-            Debug.Log("level over");
-        }
+        
         mainCamera.transform.position = transform.position + offest;
     }
 
