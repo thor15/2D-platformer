@@ -6,14 +6,23 @@ public class GameManagerController : MonoBehaviour
 {
     public MovementScript player;
     public ScoreCounter counter;
+    
     public GameObject level1;
     public GameObject level2;
+    
     public GameObject coin;
-    public List<List<Vector3>> coinPositions = new List<List<Vector3>>();
-    private int index = 0;
+    public Dictionary<int, List<Vector3>> coinPositions = new Dictionary<int, List<Vector3>>();
+    private int index = 1;
+
     // Start is called before the first frame update
     void Start()
     {
+        coinPositions.Add(1, new List<Vector3>());
+        coinPositions.Add(2, new List<Vector3>());
+        coinPositions[1].Add(new Vector3(22, 0, 0));
+        coinPositions[1].Add(new Vector3(11, 0, 0));
+        coinPositions[2].Add(new Vector3(22, 0, 0));
+        coinPositions[2].Add(new Vector3(12, 1, 0));
         CreateCoins();
     }
 
@@ -43,10 +52,13 @@ public class GameManagerController : MonoBehaviour
     
     void CreateCoins()
     {
-        for (int i = 0; i < coinPositions[index].Count; i++)
+        if (index <= coinPositions.Count)
         {
-            Instantiate(coin, coinPositions[index][i], Quaternion.identity);
+            for (int i = 0; i < coinPositions.Count; i++)
+            {
+                Instantiate(coin, coinPositions[index][i], Quaternion.identity);
+            }
+            index++;
         }
-        index++;
     }
 }
