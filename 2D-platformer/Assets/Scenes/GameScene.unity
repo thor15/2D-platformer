@@ -1269,6 +1269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 755866667}
   counter: {fileID: 689401742}
+  level1: {fileID: 1728328130}
+  level2: {fileID: 504534005}
 --- !u!4 &926747055
 Transform:
   m_ObjectHideFlags: 0
