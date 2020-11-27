@@ -8,10 +8,13 @@ public class GameManagerController : MonoBehaviour
     public ScoreCounter counter;
     public GameObject level1;
     public GameObject level2;
+    public GameObject coin;
+    public List<List<Vector3>> coinPositions = new List<List<Vector3>>();
+    private int index = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        CreateCoins();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class GameManagerController : MonoBehaviour
             counter.gameObject.SetActive(false);
             level1.SetActive(false);
             level2.SetActive(true);
+            CreateCoins();
             player.gameObject.transform.position = new Vector3(0, 0, 0);
             counter.gameObject.SetActive(true);
 
@@ -35,5 +39,14 @@ public class GameManagerController : MonoBehaviour
         }
 
 
+    }
+    
+    void CreateCoins()
+    {
+        for (int i = 0; i < coinPositions[index].Count; i++)
+        {
+            Instantiate(coin, coinPositions[index][i], Quaternion.identity);
+        }
+        index++;
     }
 }
