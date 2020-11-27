@@ -10,6 +10,7 @@ public class MovementScript : MonoBehaviour
     private bool isOnGround;
     private Vector3 offest;
     public bool canEndLevel = false;
+    public float coinCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,12 @@ public class MovementScript : MonoBehaviour
         if(other.CompareTag("Portal"))
         {
             canEndLevel = true;
+        }
+
+        if(other.CompareTag("Coin"))
+        {
+            coinCount++;
+            Destroy(other.gameObject);
         }
     }
 
