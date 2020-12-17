@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    //private List<PartOfLevel> groundList= new List<PartOfLevel>();
+    private List<PartOfLevel> groundList= new List<PartOfLevel>();
     private List<Vector3> vectorList= new List<Vector3>();
-    /*
+    
     public void addToList( PartOfLevel level, Vector3 location)
     {
         groundList.Add(level);
         vectorList.Add(location);
     }
 
-    public List<PartofLevel> retrieveGroundList()
+    public List<PartOfLevel> retrieveGroundList()
     {
         return groundList;
     }
@@ -22,5 +22,5 @@ public class Ground : MonoBehaviour
     {
         return vectorList;
     }
-    */
+    
 }

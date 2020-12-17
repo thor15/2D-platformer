@@ -20,26 +20,26 @@ public class BuildClassOutController : MonoBehaviour
 
     public void buildLevel()
     {
-        //Level newLevel = new Level();
+        Level newLevel = new Level();
         foreach(GameObject gameObject in partsOfTheLevel)
         {
             switch(gameObject.tag)
             {
                 case "Coin":
-                    //Level.coins.addList(gameObject.transform.position);
+                    newLevel.coins.addList(gameObject.transform.position);
                     break;
                 case "Ground":
-                    //Level.grounds.addToList(PartOfLevel.Ground, gameObject.transform.position);
+                    newLevel.grounds.addToList(PartOfLevel.Ground, gameObject.transform.position);
                     break;
                 case "Wall":
-                    //Level.grounds.addToList(PartOfLevel.Wall, gameObject.transform.position);
+                    newLevel.grounds.addToList(PartOfLevel.Wall, gameObject.transform.position);
                     break;
                 case "Portal":
-                    //Level.grounds.addToList(PartOfLevel.Portal, gameObject.transform.position);
+                    newLevel.grounds.addToList(PartOfLevel.Portal, gameObject.transform.position);
                     break;
             }
         }
-        //gameManager.levelList.levelList.add(newLevel);
+        gameManager.listOfLevel.levelList.Add(newLevel);
     }
 
 }

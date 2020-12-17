@@ -13,7 +13,7 @@ public class GameManagerController : MonoBehaviour
 {
     public List<GameObject> partsOfLevels = new List<GameObject>();
 
-    //public ListOfLevels levelList = new ListOfLevels();
+    public ListofLevels listOfLevel = new ListofLevels();
 
     public MovementScript player;
     public ScoreCounter counter;

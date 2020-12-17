@@ -56,10 +56,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ScoreCounter.cs" />
+    <Compile Include="Assets\Scripts\Level.cs" />
+    <Compile Include="Assets\Scripts\ListofLevels.cs" />
     <Compile Include="Assets\Scripts\GameManagerController.cs" />
     <Compile Include="Assets\Scripts\LevelTester.cs" />
     <Compile Include="Assets\Scripts\MovementScript.cs" />
+    <Compile Include="Assets\Scripts\Coin.cs" />
     <Compile Include="Assets\Scripts\BuildClassOutController.cs" />
+    <Compile Include="Assets\Scripts\Ground.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
