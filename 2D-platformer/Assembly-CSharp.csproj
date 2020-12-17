@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\GameManagerController.cs" />
     <Compile Include="Assets\Scripts\LevelTester.cs" />
     <Compile Include="Assets\Scripts\MovementScript.cs" />
+    <Compile Include="Assets\Scripts\BuildClassOutController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

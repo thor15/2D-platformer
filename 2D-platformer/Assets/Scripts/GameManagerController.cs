@@ -2,8 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PartOfLevel
+{
+    Ground = 0,
+    Wall = 1,
+    Portal = 2
+}
+
 public class GameManagerController : MonoBehaviour
 {
+    public List<GameObject> partsOfLevels = new List<GameObject>();
+
+    //public ListOfLevels levelList = new ListOfLevels();
+
     public MovementScript player;
     public ScoreCounter counter;
     
@@ -23,7 +34,7 @@ public class GameManagerController : MonoBehaviour
         coinPositions[1].Add(new Vector3(11, 0, 0));
         coinPositions[2].Add(new Vector3(22, 0, 0));
         coinPositions[2].Add(new Vector3(12, 1, 0));
-        CreateCoins();
+        createCoins();
     }
 
     // Update is called once per frame
@@ -36,7 +47,7 @@ public class GameManagerController : MonoBehaviour
             counter.gameObject.SetActive(false);
             level1.SetActive(false);
             level2.SetActive(true);
-            CreateCoins();
+            createCoins();
             player.gameObject.transform.position = new Vector3(0, 0, 0);
             counter.gameObject.SetActive(true);
 
@@ -50,7 +61,7 @@ public class GameManagerController : MonoBehaviour
 
     }
     
-    void CreateCoins()
+    void createCoins()
     {
         if (index <= coinPositions.Count)
         {
