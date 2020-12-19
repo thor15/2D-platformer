@@ -52,6 +52,7 @@ public class MovementScript : MonoBehaviour
     {
         if(other.CompareTag("Portal"))
         {
+            Debug.Log("It is possible to end the level");
             canEndLevel = true;
         }
 
@@ -69,4 +70,6 @@ public class MovementScript : MonoBehaviour
             canEndLevel = false;
         }
     }
+
+    
 }

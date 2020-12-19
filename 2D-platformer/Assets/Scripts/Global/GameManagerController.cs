@@ -59,7 +59,7 @@ public class GameManagerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
         {
-
+            Debug.Log("Changing Levels");
             counter.count = false;
             counter.gameObject.SetActive(false);
             RemoveLevel();
