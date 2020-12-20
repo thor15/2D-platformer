@@ -61,7 +61,14 @@ public class MovementScript : MonoBehaviour
             coinCount++;
             Destroy(other.gameObject);
         }
+
+        if (other.CompareTag("Tutorial"))
+        {
+            other.gameObject.SetActive(false);
+        }
     }
+
+
 
     private void OnTriggerExit(Collider other)
     {
