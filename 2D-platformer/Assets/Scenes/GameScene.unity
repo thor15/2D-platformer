@@ -760,6 +760,7 @@ MonoBehaviour:
   mainCamera: {fileID: 534669904}
   canEndLevel: 0
   coinCount: 0
+  playerSpeed: 3
 --- !u!135 &755866668
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1548,7 +1549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1678287048
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,7 +59,8 @@ public class GameManagerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
         {
-            Debug.Log("Changing Levels");
+            currentLevel++;
+            player.canEndLevel = false;
             counter.count = false;
             counter.gameObject.SetActive(false);
             RemoveLevel();
@@ -91,9 +92,9 @@ public class GameManagerController : MonoBehaviour
             }
             for (int i = 0; i < currentCoinPositions.Count; i++)
             {
-                Instantiate(coin, currentCoinPositions[i], Quaternion.identity);
+                GameObject gameObject = Instantiate(coin, currentCoinPositions[i], Quaternion.identity);
+                objectsToRemove.Add(gameObject);
             }
-            currentLevel++;
         }
     }
 
@@ -115,11 +116,21 @@ public class GameManagerController : MonoBehaviour
     {
         string levelListThing = JsonUtility.ToJson(listOfLevel);
         FileManager.WriteToFile("LevelList.dat", levelListThing);
+        PlayerData playerData = new PlayerData();
+        playerData.coins = player.coinCount;
+        playerData.lastLevel = currentLevel;
+        string coins = JsonUtility.ToJson(playerData);
+        FileManager.WriteToFile("Coin.dat", coins);
     }
 
     private void LoadLevels()
     {
         FileManager.LoadFromFile("LevelList.dat", out var json);
         JsonUtility.FromJsonOverwrite(json, listOfLevel);
+        PlayerData playerData = new PlayerData();
+        FileManager.LoadFromFile("Coin.dat", out var coins);
+        JsonUtility.FromJsonOverwrite(coins, playerData);
+        player.coinCount = playerData.coins;
+        currentLevel = playerData.lastLevel;
     }
 }

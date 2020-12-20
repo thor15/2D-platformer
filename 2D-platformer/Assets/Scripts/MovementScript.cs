@@ -10,7 +10,8 @@ public class MovementScript : MonoBehaviour
     private bool isOnGround;
     private Vector3 offest;
     public bool canEndLevel = false;
-    public float coinCount = 0;
+    public int coinCount = 0;
+    public float playerSpeed = 3.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,11 @@ public class MovementScript : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * 3 * Time.deltaTime);
+            transform.Translate(Vector3.left * playerSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * 3 * Time.deltaTime);
+            transform.Translate(Vector3.right * playerSpeed * Time.deltaTime);
         }
         if (Input.GetKeyDown(KeyCode.W) && isOnGround)
         {
@@ -52,7 +53,6 @@ public class MovementScript : MonoBehaviour
     {
         if(other.CompareTag("Portal"))
         {
-            Debug.Log("It is possible to end the level");
             canEndLevel = true;
         }
 
