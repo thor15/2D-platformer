@@ -14,7 +14,6 @@ public class MovementScript : MonoBehaviour
     public bool canEndLevel = false;
     public int coinCount = 0;
     public float playerSpeed = 3.0f;
-    public float coinCount = 0;
     public static event Action DisableText;
 
     // Start is called before the first frame update
