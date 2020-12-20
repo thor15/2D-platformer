@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
 
 public class MovementScript : MonoBehaviour
@@ -11,6 +13,7 @@ public class MovementScript : MonoBehaviour
     private Vector3 offest;
     public bool canEndLevel = false;
     public float coinCount = 0;
+    public static event Action DisableText;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +67,10 @@ public class MovementScript : MonoBehaviour
 
         if (other.CompareTag("Tutorial"))
         {
+            if(DisableText != null)
+            {
+                DisableText();
+            }
             other.gameObject.SetActive(false);
         }
     }
