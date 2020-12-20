@@ -120,7 +120,7 @@ public class GameManagerController : MonoBehaviour
         playerData.coins = player.coinCount;
         playerData.lastLevel = currentLevel;
         string coins = JsonUtility.ToJson(playerData);
-        FileManager.WriteToFile("Coin.dat", coins);
+        FileManager.WriteToFile("PlayerData.dat", coins);
     }
 
     private void LoadLevels()
@@ -128,7 +128,7 @@ public class GameManagerController : MonoBehaviour
         FileManager.LoadFromFile("LevelList.dat", out var json);
         JsonUtility.FromJsonOverwrite(json, listOfLevel);
         PlayerData playerData = new PlayerData();
-        FileManager.LoadFromFile("Coin.dat", out var coins);
+        FileManager.LoadFromFile("PlayerData.dat", out var coins);
         JsonUtility.FromJsonOverwrite(coins, playerData);
         player.coinCount = playerData.coins;
         currentLevel = playerData.lastLevel;
