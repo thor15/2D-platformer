@@ -70,7 +70,7 @@ public class GameManagerController : MonoBehaviour
 
         }
 
-        if (player.transform.position.y < -10)
+        if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space));
         {
             player.transform.position = new Vector3(0, 0, 0);
         }
