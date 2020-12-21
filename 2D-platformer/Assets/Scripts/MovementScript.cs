@@ -40,7 +40,7 @@ public class MovementScript : MonoBehaviour
             personRB.AddForce(Vector3.up * 10, ForceMode.Impulse);
             isOnGround = false;
         }
-        
+                
         mainCamera.transform.position = transform.position + offest;
     }
 
@@ -71,7 +71,7 @@ public class MovementScript : MonoBehaviour
             {
                 DisableText();
             }
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
         }
     }
 
@@ -84,6 +84,4 @@ public class MovementScript : MonoBehaviour
             canEndLevel = false;
         }
     }
-
-    
 }

@@ -11,7 +11,7 @@ public class ScoreCounter : MonoBehaviour
  
     void OnEnable()
     {
-        score = 10000;
+        score = (int)Mathf.Pow(2, 64);
         count = true;
     }
     // Start is called before the first frame update
