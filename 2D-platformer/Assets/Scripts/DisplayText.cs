@@ -7,7 +7,7 @@ public class DisplayText : MonoBehaviour
 {
 
     public TextMeshProUGUI text;
-
+    public GameObject tutorialObject;
     private bool displayText = false;
     // Start is called before the first frame update
     void Start()
@@ -50,7 +50,13 @@ public class DisplayText : MonoBehaviour
         yield return new WaitForSeconds(5);
         Debug.LogError("Text is False");
         text.gameObject.SetActive(false);
-        Destroy(this);
+        if(tutorialObject != null)
+        {
+            tutorialObject.SetActive(true);
+        }
+               
+        Destroy(gameObject);
+        Destroy(text.gameObject);
     }
 
 
