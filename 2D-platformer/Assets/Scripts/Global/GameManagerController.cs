@@ -31,10 +31,10 @@ public class GameManagerController : MonoBehaviour
     public ListofLevels listOfLevel = new ListofLevels();
     public List<GameObject> partsOfLevels = new List<GameObject>();
     public GameObject coin;
-    public int currentLevel = 0;
-    private List<PartOfLevel> currentGroundEnum;
-    private List<Vector3> currentGroundPosistions;
-    private List<Vector3> currentCoinPositions;
+    private int currentLevel = 0;
+    [SerializeField] private List<PartOfLevel> currentGroundEnum;
+    [SerializeField] private List<Vector3> currentGroundPosistions;
+    [SerializeField] private List<Vector3> currentCoinPositions;
     #endregion
 
     #region Removing Level
@@ -70,7 +70,7 @@ public class GameManagerController : MonoBehaviour
 
         }
 
-        if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space))
+        if (player.transform.position.y < -10)
         {
             player.transform.position = new Vector3(0, 0, 0);
         }
