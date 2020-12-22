@@ -18,6 +18,7 @@ public class GameManagerController : MonoBehaviour
     public ScoreCounter counter;
     #endregion
 
+    private Rigidbody playerRB;
 
     /*public GameObject level1;
     public GameObject level2;*/
@@ -52,6 +53,7 @@ public class GameManagerController : MonoBehaviour
         coinPositions[2].Add(new Vector3(12, 1, 0));*/
         LoadLevels();
         createLevel();
+        playerRB = player.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -73,6 +75,7 @@ public class GameManagerController : MonoBehaviour
         if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space))
         {
             player.transform.position = new Vector3(0, 0, 0);
+            playerRB.velocity = new Vector3(0,0,0);
         }
 
 

@@ -37,6 +37,7 @@ public class DisplayText : MonoBehaviour
         Debug.LogError("does it make it to here");
         displayText = true;
         Debug.LogError("ahngrieuohnuipoaerhngioAWHG[OIWEAHNGWUAHG");
+        MovementScript.DisableText -= ShowText;
     }
 
     void OnDisable()
@@ -54,9 +55,10 @@ public class DisplayText : MonoBehaviour
         {
             tutorialObject.SetActive(true);
         }
-               
-        Destroy(gameObject);
         Destroy(text.gameObject);
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+        
     }
 
 
