@@ -7,8 +7,7 @@ public class DisplayText : MonoBehaviour
 {
 
     public TextMeshProUGUI text;
-    public GameObject tutorialObject;
-    private bool displayText = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,25 +18,15 @@ public class DisplayText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(displayText);
-        if(displayText)
-        {
-            Debug.LogError("Is display text true");
-            StartCoroutine(timeToDisable());
-            displayText = false;
-        }
+
     }
 
 
 
     private void ShowText()
     {
-        Debug.LogWarning("Is this method called?");
         text.gameObject.SetActive(true);
-        Debug.LogError("does it make it to here");
-        displayText = true;
-        Debug.LogError("ahngrieuohnuipoaerhngioAWHG[OIWEAHNGWUAHG");
-        MovementScript.DisableText -= ShowText;
+        StartCoroutine(timeToDisable());
     }
 
     void OnDisable()
@@ -50,15 +39,8 @@ public class DisplayText : MonoBehaviour
         Debug.LogError("Running IENUMERATOR");
         yield return new WaitForSeconds(5);
         Debug.LogError("Text is False");
-        text.gameObject.SetActive(false);
-        if(tutorialObject != null)
-        {
-            tutorialObject.SetActive(true);
-        }
-        Destroy(text.gameObject);
-        gameObject.SetActive(false);
-        Destroy(gameObject);
-        
+        text.text = "There are coins that you can pick up by running into them.";
+        StartCoroutine(ExampleCoroutine());
     }
 
 
@@ -70,8 +52,18 @@ public class DisplayText : MonoBehaviour
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(5);
 
+        text.text = "This is a Portal, you can click \"s\" to end the level"; 
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+        StartCoroutine(AnotherEnumerator());
+    }
+
+    IEnumerator AnotherEnumerator()
+    {
+        Debug.LogError("Running AnotherEnumerator");
+        yield return new WaitForSeconds(5);
+        text.gameObject.SetActive(false);
+
     }
 
 
