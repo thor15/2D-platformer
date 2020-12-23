@@ -63,7 +63,7 @@ public class DisplayText : MonoBehaviour
         Debug.LogError("Running AnotherEnumerator");
         yield return new WaitForSeconds(5);
         text.gameObject.SetActive(false);
-
+        this.gameObject.SetActive(false);
     }
 
 

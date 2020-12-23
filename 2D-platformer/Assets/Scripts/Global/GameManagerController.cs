@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public enum PartOfLevel
@@ -19,6 +19,13 @@ public class GameManagerController : MonoBehaviour
     #endregion
 
     private Rigidbody playerRB;
+    public GameObject playerGameObject;
+
+    public Button continueButton;
+    public Button selectButton;
+    public Button quitButton;
+
+    public GameObject tutorailObject;
 
     /*public GameObject level1;
     public GameObject level2;*/
@@ -32,10 +39,11 @@ public class GameManagerController : MonoBehaviour
     public ListofLevels listOfLevel = new ListofLevels();
     public List<GameObject> partsOfLevels = new List<GameObject>();
     public GameObject coin;
+    public int selectedLevel = 0;
     private int currentLevel = 0;
-    [SerializeField] private List<PartOfLevel> currentGroundEnum;
-    [SerializeField] private List<Vector3> currentGroundPosistions;
-    [SerializeField] private List<Vector3> currentCoinPositions;
+    private List<PartOfLevel> currentGroundEnum;
+    private List<Vector3> currentGroundPosistions;
+    private List<Vector3> currentCoinPositions;
     #endregion
 
     #region Removing Level
@@ -52,7 +60,6 @@ public class GameManagerController : MonoBehaviour
         coinPositions[2].Add(new Vector3(22, 0, 0));
         coinPositions[2].Add(new Vector3(12, 1, 0));*/
         LoadLevels();
-        createLevel();
         playerRB = player.GetComponent<Rigidbody>();
     }
 
@@ -61,14 +68,17 @@ public class GameManagerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
         {
-            currentLevel++;
+            selectedLevel++;
+            if(selectedLevel > currentLevel)
+            {
+                currentLevel++;
+            }
             player.canEndLevel = false;
             counter.count = false;
             counter.gameObject.SetActive(false);
             RemoveLevel();
             createLevel();
             player.gameObject.transform.position = new Vector3(0, 0, 0);
-            counter.gameObject.SetActive(true);
 
         }
 
@@ -83,11 +93,12 @@ public class GameManagerController : MonoBehaviour
     
     private void createLevel()
     {
-        if (currentLevel < listOfLevel.levelList.Count)
+        counter.gameObject.SetActive(true);
+        if (selectedLevel < listOfLevel.levelList.Count)
         {
-            currentGroundEnum = listOfLevel.levelList[currentLevel].grounds.retrieveGroundList();
-            currentGroundPosistions = listOfLevel.levelList[currentLevel].grounds.retrieveVectorList();
-            currentCoinPositions = listOfLevel.levelList[currentLevel].coins.retrieveCoinPositions();
+            currentGroundEnum = listOfLevel.levelList[selectedLevel].grounds.retrieveGroundList();
+            currentGroundPosistions = listOfLevel.levelList[selectedLevel].grounds.retrieveVectorList();
+            currentCoinPositions = listOfLevel.levelList[selectedLevel].coins.retrieveCoinPositions();
             for (int i = 0; i < currentGroundEnum.Count; i++)
             {
                 GameObject gameObject = Instantiate(partsOfLevels[(int)currentGroundEnum[i]], currentGroundPosistions[i], Quaternion.identity);
@@ -135,5 +146,29 @@ public class GameManagerController : MonoBehaviour
         JsonUtility.FromJsonOverwrite(coins, playerData);
         player.coinCount = playerData.coins;
         currentLevel = playerData.lastLevel;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void Continue()
+    {
+        selectedLevel = currentLevel;
+        if(selectedLevel != 0)
+        {
+            tutorailObject.SetActive(false);
+        }
+        DisableButtons();
+        createLevel();
+        playerGameObject.SetActive(true);
+    }
+
+    private void DisableButtons()
+    {
+        continueButton.gameObject.SetActive(false);
+        selectButton.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false);
     }
 }

@@ -13,6 +13,7 @@ public class ScoreCounter : MonoBehaviour
     {
         score = (int)Mathf.Pow(2, 64);
         count = true;
+        scoreText.gameObject.SetActive(true);
     }
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,6 @@ public class ScoreCounter : MonoBehaviour
 
     void OnDisable()
     {
-
+        scoreText.gameObject.SetActive(false);
     }
 }
