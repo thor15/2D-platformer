@@ -21,9 +21,7 @@ public class GameManagerController : MonoBehaviour
     private Rigidbody playerRB;
     public GameObject playerGameObject;
 
-    public Button continueButton;
-    public Button selectButton;
-    public Button quitButton;
+    public GameObject mainMenu;
 
     public GameObject tutorailObject;
 
@@ -160,15 +158,13 @@ public class GameManagerController : MonoBehaviour
         {
             tutorailObject.SetActive(false);
         }
-        DisableButtons();
+        DisableMainMenu();
         createLevel();
         playerGameObject.SetActive(true);
     }
 
-    private void DisableButtons()
+    private void DisableMainMenu()
     {
-        continueButton.gameObject.SetActive(false);
-        selectButton.gameObject.SetActive(false);
-        quitButton.gameObject.SetActive(false);
+        mainMenu.SetActive(false);
     }
 }
