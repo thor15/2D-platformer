@@ -960,9 +960,8 @@ MonoBehaviour:
   counter: {fileID: 689401742}
   playerGameObject: {fileID: 755866666}
   mainMenu: {fileID: 1266583715}
-  continueButton: {fileID: 1594315203}
-  selectButton: {fileID: 563534466}
-  quitButton: {fileID: 1108375092}
+  pauseButton: {fileID: 1725477319}
+  pauseButtonText: {fileID: 1852804886}
   tutorailObject: {fileID: 1678287047}
   listOfLevel:
     levelList: []
@@ -1729,7 +1728,7 @@ GameObject:
   - component: {fileID: 1725477320}
   - component: {fileID: 1725477319}
   m_Layer: 5
-  m_Name: Resume
+  m_Name: Pause/Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1752,7 +1751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.569397, y: 47.657635}
+  m_AnchoredPosition: {x: 552, y: 155.88}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725477319
@@ -1797,7 +1796,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1725477320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 926747054}
+        m_TargetAssemblyTypeName: GameManagerController, Assembly-CSharp
+        m_MethodName: PuaseandResume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1725477320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,7 +2051,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Resume
+  m_Text: Pause
 --- !u!222 &1852804887
 CanvasRenderer:
   m_ObjectHideFlags: 0

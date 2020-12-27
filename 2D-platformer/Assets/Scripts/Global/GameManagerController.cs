@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public enum PartOfLevel
@@ -22,6 +23,9 @@ public class GameManagerController : MonoBehaviour
     public GameObject playerGameObject;
 
     public GameObject mainMenu;
+    public Button pauseButton;
+    public Text pauseButtonText;
+    private bool isPaused = false;
 
     public GameObject tutorailObject;
 
@@ -160,11 +164,28 @@ public class GameManagerController : MonoBehaviour
         }
         DisableMainMenu();
         createLevel();
+        pauseButton.gameObject.SetActive(true);
         playerGameObject.SetActive(true);
     }
 
     private void DisableMainMenu()
     {
         mainMenu.SetActive(false);
+    }
+    
+    public void PuaseandResume()
+    {
+        if(isPaused)
+        {
+            Time.timeScale = 1;
+            pauseButtonText.text = "Pause";
+            isPaused = false;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            pauseButtonText.text = "Resume";
+            isPaused = true;
+        }
     }
 }
