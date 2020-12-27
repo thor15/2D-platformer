@@ -21,5 +21,6 @@ public class SelectALevel : MonoBehaviour
     public void click()
     {
         controller.DisableMainMenu();
+        controller.EnableSelect();
     }
 }

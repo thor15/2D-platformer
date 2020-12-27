@@ -29,7 +29,8 @@ public class GameManagerController : MonoBehaviour
 
     public GameObject tutorailObject;
 
-    public GameObject Button;
+    public GameObject levelSelectMenu;
+    public Button backToMain;
 
     /*public GameObject level1;
     public GameObject level2;*/
@@ -97,6 +98,8 @@ public class GameManagerController : MonoBehaviour
     
     private void createLevel()
     {
+        player.transform.position = new Vector3(0, 0,0);
+        playerRB.velocity = new Vector3(0, 0, 0);
         counter.gameObject.SetActive(true);
         if (selectedLevel < listOfLevel.levelList.Count)
         {
@@ -118,7 +121,15 @@ public class GameManagerController : MonoBehaviour
 
     public void playLevel()
     {
+        levelSelectMenu.SetActive(false);
+        playerGameObject.SetActive(true);
+        if (selectedLevel != 0)
+        {
+            tutorailObject.SetActive(false);
+        }
+        pauseButton.gameObject.SetActive(true);
         createLevel();
+        backToMain.gameObject.SetActive(false);
     }
 
     private void RemoveLevel()
@@ -175,37 +186,52 @@ public class GameManagerController : MonoBehaviour
         playerGameObject.SetActive(true);
     }
 
-    // public void DisableMainMenu()
-    // {
-    //     EnableSelect();
-    //     mainMenu.SetActive(false);
-    // }
-    
+    public void DisableMainMenu()
+    {
+        mainMenu.SetActive(false);
+    }
+
     public void PuaseandResume()
     {
         if(isPaused)
         {
             Time.timeScale = 1;
             pauseButtonText.text = "Pause";
+            backToMain.gameObject.SetActive(false);
             isPaused = false;
         }
         else
         {
             Time.timeScale = 0;
             pauseButtonText.text = "Resume";
+            backToMain.gameObject.SetActive(true);
             isPaused = true;
         }
     }
 
-    // private void EnableSelect()
-    // {
-    //     Button.SetActive(true);
-    //     for(int i = 0; i < 10; i++)
-    //     {
-    //         if(i > currentLevel)
-    //         {
-    //             Button.transform.GetChild(i).gameObject.SetActive(false);
-    //         }   
-    //     }
-    // }
+    public void EnableSelect()
+    {
+        backToMain.gameObject.SetActive(true);
+        levelSelectMenu.SetActive(true);
+         for(int i = 0; i < 10; i++)
+         {
+             if(i >= currentLevel)
+             {
+                 levelSelectMenu.transform.GetChild(i).gameObject.SetActive(false);
+             }   
+         }
+    }
+
+    public void BackToMainMenu()
+    {
+        RemoveLevel();
+        Time.timeScale = 1;
+        isPaused = false;
+        levelSelectMenu.SetActive(false);
+        player.gameObject.SetActive(false);
+        backToMain.gameObject.SetActive(false);
+        counter.gameObject.SetActive(false);
+        pauseButton.gameObject.SetActive(false);
+        mainMenu.SetActive(true);
+    }
 }
