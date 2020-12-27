@@ -29,6 +29,8 @@ public class GameManagerController : MonoBehaviour
 
     public GameObject tutorailObject;
 
+    public GameObject Button;
+
     /*public GameObject level1;
     public GameObject level2;*/
 
@@ -114,6 +116,11 @@ public class GameManagerController : MonoBehaviour
         }
     }
 
+    public void playLevel()
+    {
+        createLevel();
+    }
+
     private void RemoveLevel()
     {
         for(int i = 0; i < objectsToRemove.Count; i++)
@@ -168,10 +175,11 @@ public class GameManagerController : MonoBehaviour
         playerGameObject.SetActive(true);
     }
 
-    private void DisableMainMenu()
-    {
-        mainMenu.SetActive(false);
-    }
+    // public void DisableMainMenu()
+    // {
+    //     EnableSelect();
+    //     mainMenu.SetActive(false);
+    // }
     
     public void PuaseandResume()
     {
@@ -188,4 +196,16 @@ public class GameManagerController : MonoBehaviour
             isPaused = true;
         }
     }
+
+    // private void EnableSelect()
+    // {
+    //     Button.SetActive(true);
+    //     for(int i = 0; i < 10; i++)
+    //     {
+    //         if(i > currentLevel)
+    //         {
+    //             Button.transform.GetChild(i).gameObject.SetActive(false);
+    //         }   
+    //     }
+    // }
 }

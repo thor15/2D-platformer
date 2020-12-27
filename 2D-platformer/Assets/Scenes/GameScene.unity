@@ -963,6 +963,7 @@ MonoBehaviour:
   pauseButton: {fileID: 1725477319}
   pauseButtonText: {fileID: 1852804886}
   tutorailObject: {fileID: 1678287047}
+  Button: {fileID: 0}
   listOfLevel:
     levelList: []
   partsOfLevels:

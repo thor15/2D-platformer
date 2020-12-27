@@ -58,11 +58,13 @@
     <Compile Include="Assets\Scripts\Global\FileManager.cs" />
     <Compile Include="Assets\Scripts\Global\ScoreCounter.cs" />
     <Compile Include="Assets\Scripts\LevelParts\Level.cs" />
+    <Compile Include="Assets\Scripts\SelectALevel.cs" />
     <Compile Include="Assets\Scripts\LevelParts\ListofLevels.cs" />
     <Compile Include="Assets\Scripts\Global\GameManagerController.cs" />
     <Compile Include="Assets\Scripts\Global\LevelTester.cs" />
     <Compile Include="Assets\Scripts\MovementScript.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\LevelSelect.cs" />
     <Compile Include="Assets\Scripts\LevelParts\Coin.cs" />
     <Compile Include="Assets\Scripts\BuildClassOutController.cs" />
     <Compile Include="Assets\Scripts\LevelParts\Ground.cs" />
