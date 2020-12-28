@@ -15,6 +15,7 @@ public class MovementScript : MonoBehaviour
     public int coinCount = 0;
     public float playerSpeed = 3.0f;
     public static event Action DisableText;
+    public bool touchingSpike = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,10 @@ public class MovementScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.CompareTag("Death"))
+        {
+            touchingSpike = true;
+        }
         if(other.CompareTag("Portal"))
         {
             canEndLevel = true;

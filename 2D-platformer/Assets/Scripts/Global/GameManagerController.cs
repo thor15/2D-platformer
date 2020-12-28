@@ -87,10 +87,11 @@ public class GameManagerController : MonoBehaviour
 
         }
 
-        if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space))
+        if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space)|| player.touchingSpike)
         {
             player.transform.position = new Vector3(0, 0, 0);
             playerRB.velocity = new Vector3(0, 0, 0);
+            player.touchingSpike = false;
         }
 
 
