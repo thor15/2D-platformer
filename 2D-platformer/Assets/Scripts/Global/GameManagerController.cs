@@ -232,6 +232,7 @@ public class GameManagerController : MonoBehaviour
         backToMain.gameObject.SetActive(false);
         counter.gameObject.SetActive(false);
         pauseButton.gameObject.SetActive(false);
+        pauseButtonText.text = "Pause";
         mainMenu.SetActive(true);
     }
 }
