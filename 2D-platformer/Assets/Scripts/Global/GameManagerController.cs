@@ -9,7 +9,8 @@ public enum PartOfLevel
 {
     Ground = 0,
     Wall = 1,
-    Portal = 2
+    Portal = 2,
+    Spike = 3
 }
 
 public class GameManagerController : MonoBehaviour
@@ -74,7 +75,7 @@ public class GameManagerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
         {
             selectedLevel++;
-            if(selectedLevel > currentLevel)
+            if (selectedLevel > currentLevel)
             {
                 currentLevel++;
             }
@@ -87,7 +88,7 @@ public class GameManagerController : MonoBehaviour
 
         }
 
-        if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space)|| player.touchingSpike)
+        if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space) || player.touchingSpike)
         {
             player.transform.position = new Vector3(0, 0, 0);
             playerRB.velocity = new Vector3(0, 0, 0);

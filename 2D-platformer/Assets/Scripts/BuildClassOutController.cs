@@ -37,6 +37,9 @@ public class BuildClassOutController : MonoBehaviour
                 case "Portal":
                     newLevel.grounds.addToList(PartOfLevel.Portal, gameObject.transform.position);
                     break;
+                case "Death":
+                    newLevel.grounds.addToList(PartOfLevel.Spike, gameObject.transform.position);
+                    break;
             }
         }
         gameManager.listOfLevel.levelList.Add(newLevel);
