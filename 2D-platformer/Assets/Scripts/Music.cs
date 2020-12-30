@@ -18,10 +18,10 @@ public class Music : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((musicClip < audioClips.Count))
+        if(!musicPlayer.isPlaying/*(musicClip < audioClips.Count)*/)
         {
             PlayMusic();
-            musicClip++;
+            //musicClip++;
         }
     }
 
