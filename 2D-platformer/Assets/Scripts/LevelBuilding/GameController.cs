@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameController : MonoBehaviour
     public int selectedLevel;
     public InputField correctLevel;
     public GameObject menu;
+    public Button compileLevel;
+    public Button startLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +29,8 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
         {
-            player.canEndLevel = false;
-            createLevel();
-            player.gameObject.transform.position = new Vector3(0, 0, 0);
-
+            compileLevel.gameObject.SetActive(true);
+            startLevel.gameObject.SetActive(false);
         }
 
         if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space) || player.touchingSpike)
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour
         player.transform.position = new Vector3(0, 0, 0);
         playerRB.velocity = new Vector3(0, 0, 0);
         
+
         if (selectedLevel < gameManagerController.listOfLevel.levelList.Count)
         {
             gameManagerController.currentGroundEnum = gameManagerController.listOfLevel.levelList[selectedLevel].grounds.retrieveGroundList();
@@ -73,12 +75,17 @@ public class GameController : MonoBehaviour
     public void CreateNewLevel()
     {
         HideMenu();
+        selectedLevel = gameManagerController.listOfLevel.levelList.Count;
     }
 
     private void HideMenu()
     {
         menu.SetActive(false);
+        startLevel.gameObject.SetActive(true);
     }
 
-
+    public void onClick()
+    {
+        player.gameObject.SetActive(true);
+    }
 }

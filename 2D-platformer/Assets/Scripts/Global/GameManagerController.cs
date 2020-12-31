@@ -72,7 +72,7 @@ public class GameManagerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
+        if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
         {
             selectedLevel++;
             if (selectedLevel > currentLevel)
@@ -93,7 +93,7 @@ public class GameManagerController : MonoBehaviour
             player.transform.position = new Vector3(0, 0, 0);
             playerRB.velocity = new Vector3(0, 0, 0);
             player.touchingSpike = false;
-        }*/
+        }
 
 
     }

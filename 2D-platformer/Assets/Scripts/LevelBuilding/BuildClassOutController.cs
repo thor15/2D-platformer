@@ -6,6 +6,7 @@ public class BuildClassOutController : MonoBehaviour
 {
     public List<GameObject> partsOfTheLevel = new List<GameObject>();
     private GameManagerController gameManager;
+    public GameController gameController;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,15 @@ public class BuildClassOutController : MonoBehaviour
                     break;
             }
         }
-        gameManager.listOfLevel.levelList.Add(newLevel);
+        if(gameController.selectedLevel == gameManager.listOfLevel.levelList.Count)
+        {
+            gameManager.listOfLevel.levelList.Add(newLevel);
+        }
+        else
+        {
+            gameManager.listOfLevel.levelList.RemoveAt(gameController.selectedLevel);
+            gameManager.listOfLevel.levelList.Insert(gameController.selectedLevel, newLevel);
+        }
     }
 
 }
