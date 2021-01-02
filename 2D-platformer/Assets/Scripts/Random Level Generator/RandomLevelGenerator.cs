@@ -67,18 +67,18 @@ public class RandomLevelGenerator
                     levelPart = PartOfLevel.Wall;
                     break;
             }
-            lastPlacement = CreatePosition();
-            gameManager.currentGroundEnum.Add(levelPart);
+            lastPlacement = new Vector3(Random.Range(2 + lastPlacement.x, maxDistanceTravled + lastPlacement.x + gameManager.partsOfLevels[(int)levelPart].transform.localScale.x / 2), Random.Range(0, maxJumpHeight - gameManager.partsOfLevels[(int)levelPart].transform.localScale.y / 2), 0); 
             gameManager.currentGroundPosistions.Add(lastPlacement);
+            gameManager.currentGroundEnum.Add(levelPart);
         }
-        lastPlacement = new Vector3(Random.Range(2 + lastPlacement.x, maxDistanceTravled+ lastPlacement.x), Random.Range(0, maxJumpHeight), 0);
+        lastPlacement = new Vector3(Random.Range(2 + lastPlacement.x, maxDistanceTravled+ lastPlacement.x), Random.Range(0, maxJumpHeight - gameManager.partsOfLevels[(int)PartOfLevel.Portal].transform.localScale.y / 2), 0);
         gameManager.currentGroundEnum.Add(PartOfLevel.Portal);
         gameManager.currentGroundPosistions.Add(lastPlacement);
 
     }
 
 
-    private Vector3 CreatePosition()
+    /*private Vector3 CreatePosition()
     {
         Vector3 position = new Vector3(0, 0, 0);
 
@@ -87,7 +87,7 @@ public class RandomLevelGenerator
         Debug.Log("X position: " + position.x);
         Debug.Log("Last x postion: " + lastPlacement.x);
 
-        float topJump = parabolaA * Mathf.Pow(position.x - lastPlacement.x, 2) + parabolaB * (position.x - lastPlacement.x)
+        float topJump = parabolaA * Mathf.Pow(position.x, 2) + parabolaB * (position.x)
             - gameManager.partsOfLevels[(int)levelPart].transform.localScale.y / 2;
 
         position.y = Random.Range(0, topJump);
@@ -95,5 +95,5 @@ public class RandomLevelGenerator
         ;
 
         return position;
-    }
+    }*/
 }
