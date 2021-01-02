@@ -48,6 +48,7 @@ public class RandomLevelGenerator
 
     public void RandomlyCreateLevel()
     {
+        lastPlacement = new Vector3(0, 0, 0);
         gameManager.currentGroundEnum.Add(PartOfLevel.Ground);
         gameManager.currentGroundPosistions.Add(new Vector3(0, -1, 0));
 
@@ -67,7 +68,7 @@ public class RandomLevelGenerator
                     levelPart = PartOfLevel.Wall;
                     break;
             }
-            lastPlacement = new Vector3(Random.Range(2 + lastPlacement.x, maxDistanceTravled + lastPlacement.x + gameManager.partsOfLevels[(int)levelPart].transform.localScale.x / 2), Random.Range(0, maxJumpHeight - gameManager.partsOfLevels[(int)levelPart].transform.localScale.y / 2), 0); 
+            lastPlacement = new Vector3(Random.Range(2 + lastPlacement.x, maxDistanceTravled + lastPlacement.x + gameManager.partsOfLevels[(int)levelPart].transform.localScale.x / 2), Random.Range(0, maxJumpHeight -3 - gameManager.partsOfLevels[(int)levelPart].transform.localScale.y / 2), 0); 
             gameManager.currentGroundPosistions.Add(lastPlacement);
             gameManager.currentGroundEnum.Add(levelPart);
         }

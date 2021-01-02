@@ -30,7 +30,9 @@ public class RandomGameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
         {
             Debug.Log("You win");
-
+            RemoveLevel();
+            levelGenerator.RandomlyCreateLevel();
+            CreateRandomLevel();
         }
 
         if (/*player.transform.position.y < -10 ||*/ Input.GetKeyDown(KeyCode.Space)/* || player.touchingSpike*/)
@@ -56,5 +58,16 @@ public class RandomGameManager : MonoBehaviour
             GameObject gameObject = Instantiate(coin, currentCoinPositions[i], Quaternion.identity);
             objectsToRemove.Add(gameObject);
         }*/
+    }
+
+
+    private void RemoveLevel()
+    {
+        for (int i = 0; i < objectsToRemove.Count; i++)
+        {
+            Destroy(objectsToRemove[i]);
+        }
+        currentGroundPosistions = new List<Vector3>();
+        currentGroundEnum = new List<PartOfLevel>();
     }
 }
