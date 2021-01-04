@@ -33,6 +33,8 @@ public class GameManagerController : MonoBehaviour
     public GameObject levelSelectMenu;
     public Button backToMain;
 
+    private RandomGameManager randomGameManager;
+
     /*public GameObject level1;
     public GameObject level2;*/
 
@@ -72,7 +74,7 @@ public class GameManagerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
+        if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel && selectedLevel < 15)
         {
             selectedLevel++;
             if (selectedLevel > currentLevel)
@@ -94,8 +96,6 @@ public class GameManagerController : MonoBehaviour
             playerRB.velocity = new Vector3(0, 0, 0);
             player.touchingSpike = false;
         }
-
-
     }
     
     private void createLevel()
@@ -123,6 +123,11 @@ public class GameManagerController : MonoBehaviour
 
     public void playLevel()
     {
+        if (selectedLevel == 15)
+        {
+            randomGameManager = FindObjectOfType<RandomGameManager>();
+            randomGameManager.gameObject.SetActive(true);
+        }
         levelSelectMenu.SetActive(false);
         playerGameObject.SetActive(true);
         if (selectedLevel != 0)
@@ -132,6 +137,7 @@ public class GameManagerController : MonoBehaviour
         pauseButton.gameObject.SetActive(true);
         createLevel();
         backToMain.gameObject.SetActive(false);
+
     }
 
     private void RemoveLevel()
