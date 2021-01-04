@@ -76,6 +76,32 @@ public class RandomLevelGenerator
         gameManager.currentGroundEnum.Add(PartOfLevel.Portal);
         gameManager.currentGroundPosistions.Add(lastPlacement);
 
+        for(int i = 0; i < gameManager.currentGroundEnum.Count; i++)
+        {
+            if (gameManager.currentGroundEnum[i] == PartOfLevel.Ground && gameManager.currentGroundPosistions[i].x != 0)
+            {
+                gameManager.currentGroundEnum.Add(PartOfLevel.Spike);
+                gameManager.currentGroundPosistions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x-3, gameManager.currentGroundPosistions[i].x + 3),
+                    gameManager.currentGroundPosistions[i].y+1,0));
+            }
+            int side = Random.Range(1, 3);
+            if (gameManager.currentGroundEnum[i] == PartOfLevel.Wall)
+            {
+                if (side == 1)
+                {
+                    gameManager.currentGroundEnum.Add(PartOfLevel.Spike);
+                    gameManager.currentGroundPosistions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x - 3f, gameManager.currentGroundPosistions[i].x -1f),
+                        gameManager.currentGroundPosistions[i].y + 3, 0));
+                }
+                if (side == 2)
+                {
+                    gameManager.currentGroundEnum.Add(PartOfLevel.Spike);
+                    gameManager.currentGroundPosistions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x +1f, gameManager.currentGroundPosistions[i].x +3),
+                        gameManager.currentGroundPosistions[i].y + 3, 0));
+                }
+            }
+        }
+
     }
 
 

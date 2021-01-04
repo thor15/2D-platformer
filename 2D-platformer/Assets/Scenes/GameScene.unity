@@ -1078,7 +1078,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1919,6 +1919,7 @@ MonoBehaviour:
   coinCount: 0
   playerSpeed: 3
   touchingSpike: 0
+  jumpHeight: 10
 --- !u!135 &755866668
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2404,6 +2405,9 @@ MonoBehaviour:
   - {fileID: 474895513884694591, guid: 7fea67fc39253e047936ec47c924071b, type: 3}
   coin: {fileID: 6648304886673640839, guid: 6ae3ca08c8b972d448a104f7191e17f5, type: 3}
   selectedLevel: 0
+  currentGroundEnum: 
+  currentGroundPosistions: []
+  currentCoinPositions: []
 --- !u!4 &926747055
 Transform:
   m_ObjectHideFlags: 0

@@ -12,21 +12,25 @@ public class Music : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicPlayer = GetComponent<AudioSource>();   
+        musicPlayer = GetComponent<AudioSource>();
+        PlayMusic();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!musicPlayer.isPlaying/*(musicClip < audioClips.Count)*/)
+        
+        if (/*!musicPlayer.isPlaying/*(musicClip < audioClips.Count)*/ musicPlayer.time == 100)
         {
             PlayMusic();
             //musicClip++;
         }
+        musicPlayer.time += 1;
     }
 
     private void PlayMusic()
     {
-        musicPlayer.PlayOneShot(audioClips[musicClip]);        
+        musicPlayer.PlayOneShot(audioClips[musicClip]);
+        
     }
 }
