@@ -28,7 +28,6 @@ public class RandomGameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel)
         {
-            Debug.Log("You win");
             RemoveLevel();
             levelGenerator.RandomlyCreateLevel();
             CreateRandomLevel();
@@ -60,7 +59,7 @@ public class RandomGameManager : MonoBehaviour
     }
 
 
-    private void RemoveLevel()
+    public void RemoveLevel()
     {
         for (int i = 0; i < objectsToRemove.Count; i++)
         {
@@ -68,5 +67,12 @@ public class RandomGameManager : MonoBehaviour
         }
         currentGroundPosistions = new List<Vector3>();
         currentGroundEnum = new List<PartOfLevel>();
+    }
+
+    public void BuildNewLevel()
+    {
+        RemoveLevel();
+        levelGenerator.RandomlyCreateLevel();
+        CreateRandomLevel();
     }
 }

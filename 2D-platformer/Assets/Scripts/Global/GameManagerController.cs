@@ -32,9 +32,11 @@ public class GameManagerController : MonoBehaviour
 
     public GameObject levelSelectMenu;
     public Button backToMain;
+    public Button recreateLevel;
 
-    private RandomGameManager randomGameManager;
+    public RandomGameManager randomGameManager;
 
+    
     /*public GameObject level1;
     public GameObject level2;*/
 
@@ -77,17 +79,23 @@ public class GameManagerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && player.canEndLevel && selectedLevel < 15)
         {
             selectedLevel++;
-            if (selectedLevel > currentLevel)
-            {
-                currentLevel++;
-            }
-            player.canEndLevel = false;
-            counter.count = false;
-            counter.gameObject.SetActive(false);
             RemoveLevel();
-            createLevel();
-            player.gameObject.transform.position = new Vector3(0, 0, 0);
-
+            if (selectedLevel < 15)
+            {
+                if (selectedLevel > currentLevel)
+                {
+                    currentLevel++;
+                }
+                player.canEndLevel = false;
+                counter.count = false;
+                counter.gameObject.SetActive(false);
+                createLevel();
+                player.gameObject.transform.position = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                randomGameManager.gameObject.SetActive(true);
+            }
         }
 
         if (player.transform.position.y < -10 || Input.GetKeyDown(KeyCode.Space) || player.touchingSpike)
@@ -125,7 +133,6 @@ public class GameManagerController : MonoBehaviour
     {
         if (selectedLevel == 15)
         {
-            randomGameManager = FindObjectOfType<RandomGameManager>();
             randomGameManager.gameObject.SetActive(true);
         }
         levelSelectMenu.SetActive(false);
@@ -135,8 +142,11 @@ public class GameManagerController : MonoBehaviour
             tutorailObject.SetActive(false);
         }
         pauseButton.gameObject.SetActive(true);
-        createLevel();
         backToMain.gameObject.SetActive(false);
+        if(selectedLevel < 15)
+        {
+            createLevel(); 
+        }
 
     }
 
@@ -207,6 +217,7 @@ public class GameManagerController : MonoBehaviour
             pauseButtonText.text = "Pause";
             backToMain.gameObject.SetActive(false);
             isPaused = false;
+            recreateLevel.gameObject.SetActive(false);
         }
         else
         {
@@ -214,6 +225,10 @@ public class GameManagerController : MonoBehaviour
             pauseButtonText.text = "Resume";
             backToMain.gameObject.SetActive(true);
             isPaused = true;
+            if (selectedLevel == 15)
+            {
+                recreateLevel.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -242,5 +257,8 @@ public class GameManagerController : MonoBehaviour
         pauseButton.gameObject.SetActive(false);
         pauseButtonText.text = "Pause";
         mainMenu.SetActive(true);
+        randomGameManager.RemoveLevel();
+        recreateLevel.gameObject.SetActive(false);
+        randomGameManager.gameObject.SetActive(false);
     }
 }
