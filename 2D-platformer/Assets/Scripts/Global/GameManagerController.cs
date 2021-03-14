@@ -85,6 +85,7 @@ public class GameManagerController : MonoBehaviour
                 if (selectedLevel > currentLevel)
                 {
                     currentLevel++;
+                    Debug.Log(currentLevel + "   " + selectedLevel);
                 }
                 player.canEndLevel = false;
                 counter.count = false;
@@ -234,9 +235,10 @@ public class GameManagerController : MonoBehaviour
 
     public void EnableSelect()
     {
+        Debug.Log(currentLevel);
         backToMain.gameObject.SetActive(true);
         levelSelectMenu.SetActive(true);
-         for(int i = 0; i < 10; i++)
+         for(int i = 0; i < 15; i++)
          {
              if(i >= currentLevel)
              {
@@ -250,6 +252,10 @@ public class GameManagerController : MonoBehaviour
         RemoveLevel();
         Time.timeScale = 1;
         isPaused = false;
+        for (int i = 0; i < levelSelectMenu.transform.childCount; i++)
+        {
+            levelSelectMenu.transform.GetChild(i).gameObject.SetActive(true);
+        }
         levelSelectMenu.SetActive(false);
         player.gameObject.SetActive(false);
         backToMain.gameObject.SetActive(false);
@@ -260,5 +266,6 @@ public class GameManagerController : MonoBehaviour
         randomGameManager.RemoveLevel();
         recreateLevel.gameObject.SetActive(false);
         randomGameManager.gameObject.SetActive(false);
+        
     }
 }

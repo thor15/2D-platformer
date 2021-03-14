@@ -837,10 +837,10 @@ MonoBehaviour:
     color: {r: 0.2329852, g: 0.5377358, b: 0.15929154, a: 0}
   - name: Cool2
     height: 0.2
-    color: {r: 0.8396226, g: 0.18535063, b: 0.42165673, a: 0}
+    color: {r: 0.1843137, g: 0.44077215, b: 0.8392157, a: 0}
   - name: Cool85
     height: 0.3
-    color: {r: 0.37694052, g: 0.13627622, b: 0.8301887, a: 0}
+    color: {r: 0.17112683, g: 0.83137256, b: 0.13725488, a: 0}
   - name: Cool4
     height: 0.4
     color: {r: 0.20484152, g: 0.7924528, b: 0.77633345, a: 0}
@@ -849,16 +849,16 @@ MonoBehaviour:
     color: {r: 0.5377358, g: 0.43544132, b: 0.09841577, a: 0}
   - name: Cool6
     height: 0.6
-    color: {r: 0.27447608, g: 0.10971874, b: 0.6320754, a: 0}
+    color: {r: 0.20841484, g: 0.9056604, b: 0.13157704, a: 0}
   - name: Cool123865
     height: 0.7
-    color: {r: 0.25613585, g: 0.026343882, b: 0.3773585, a: 0}
+    color: {r: 0.8301887, g: 0.7118285, b: 0.19110003, a: 0}
   - name: Cool8
     height: 0.8
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0.7169812, g: 0.296616, b: 0.08387324, a: 0}
   - name: Cool431523678
     height: 0.9
-    color: {r: 0.9433962, g: 0.30615875, b: 0.8844291, a: 0}
+    color: {r: 0.30588233, g: 0.94509804, b: 0.92114216, a: 0}
   - name: Cool10
     height: 1
     color: {r: 0.06952649, g: 0.45267287, b: 0.5943396, a: 0}
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6beec4d92a8c2a644af82aceddd288c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 8
 --- !u!114 &469792336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,7 +1395,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &534669905
@@ -1425,7 +1425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: b4e03b819912ca746b68c6610bd537b3, type: 3}
+  - {fileID: 8300000, guid: 802a0bcb9b5144640b0a12ec7cf98c00, type: 3}
+  - {fileID: 8300000, guid: 8d0e1f6ef51745c418e7d5bb58d8f9e3, type: 3}
   musicClip: 0
 --- !u!82 &534669907
 AudioSource:

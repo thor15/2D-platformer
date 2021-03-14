@@ -20,17 +20,19 @@ public class Music : MonoBehaviour
     void Update()
     {
         
-        if (/*!musicPlayer.isPlaying/*(musicClip < audioClips.Count)*/ musicPlayer.time == 100)
+        if (!musicPlayer.isPlaying)
         {
             PlayMusic();
-            //musicClip++;
+            musicClip++;
         }
-        musicPlayer.time += 1;
     }
 
     private void PlayMusic()
     {
         musicPlayer.PlayOneShot(audioClips[musicClip]);
-        
+        if(musicClip > audioClips.Count)
+        {
+            musicClip = 0;
+        }
     }
 }
