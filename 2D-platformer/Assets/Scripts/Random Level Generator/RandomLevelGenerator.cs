@@ -84,7 +84,7 @@ public class RandomLevelGenerator
                 gameManager.currentGroundPosistions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x-3, gameManager.currentGroundPosistions[i].x + 3),
                     gameManager.currentGroundPosistions[i].y+1,0));
             }
-            int side = Random.Range(1, 3);
+            int side = Random.Range(1, 4);
             if (gameManager.currentGroundEnum[i] == PartOfLevel.Wall)
             {
                 if (side == 1)
@@ -95,8 +95,7 @@ public class RandomLevelGenerator
                 }
                 if (side == 2)
                 {
-                    gameManager.currentGroundEnum.Add(PartOfLevel.Spike);
-                    gameManager.currentGroundPosistions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x +1f, gameManager.currentGroundPosistions[i].x +3),
+                    gameManager.currentCoinPositions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x +1f, gameManager.currentGroundPosistions[i].x +3),
                         gameManager.currentGroundPosistions[i].y + 3, 0));
                 }
             }

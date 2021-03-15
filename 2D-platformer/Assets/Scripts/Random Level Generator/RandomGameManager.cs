@@ -10,6 +10,7 @@ public class RandomGameManager : MonoBehaviour
     private RandomLevelGenerator levelGenerator;
 
     public List<GameObject> partsOfLevels = new List<GameObject>();
+    public GameObject coin;
     public List<PartOfLevel> currentGroundEnum;
     public List<Vector3> currentGroundPosistions;
     public List<Vector3> currentCoinPositions;
@@ -49,6 +50,11 @@ public class RandomGameManager : MonoBehaviour
         for (int i = 0; i < currentGroundEnum.Count; i++)
         {
             GameObject gameObject = Instantiate(partsOfLevels[(int)currentGroundEnum[i]], currentGroundPosistions[i], Quaternion.identity);
+            objectsToRemove.Add(gameObject);
+        }
+        for(int i = 0; i < currentCoinPositions.Count; i++)
+        {
+            GameObject gameObject = Instantiate(coin, currentCoinPositions[i], Quaternion.identity);
             objectsToRemove.Add(gameObject);
         }
         /*for (int i = 0; i < currentCoinPositions.Count; i++)

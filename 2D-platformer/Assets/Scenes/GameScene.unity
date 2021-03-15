@@ -4629,6 +4629,7 @@ MonoBehaviour:
   - {fileID: 4215985094272961321, guid: 1437fa111fe3057418e59b3de19d507d, type: 3}
   - {fileID: 5597334836061461201, guid: fb01ea1ad5180a14d8a6094d0d9a9b07, type: 3}
   - {fileID: 474895513884694591, guid: 7fea67fc39253e047936ec47c924071b, type: 3}
+  coin: {fileID: 6648304886673640839, guid: 6ae3ca08c8b972d448a104f7191e17f5, type: 3}
   currentGroundEnum: 
   currentGroundPosistions: []
   currentCoinPositions: []
@@ -5586,13 +5587,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773930471}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 100, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1847837971
 GameObject:
   m_ObjectHideFlags: 0
