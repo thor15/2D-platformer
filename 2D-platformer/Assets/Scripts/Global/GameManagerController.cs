@@ -268,4 +268,7 @@ public class GameManagerController : MonoBehaviour
         randomGameManager.gameObject.SetActive(false);
         
     }
+
+
+    
 }
