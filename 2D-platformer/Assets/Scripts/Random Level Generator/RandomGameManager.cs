@@ -32,6 +32,7 @@ public class RandomGameManager : MonoBehaviour
             RemoveLevel();
             levelGenerator.RandomlyCreateLevel();
             CreateRandomLevel();
+            player.canEndLevel = false;
         }
 
         if (/*player.transform.position.y < -10 ||*/ Input.GetKeyDown(KeyCode.Space) || player.touchingSpike)

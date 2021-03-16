@@ -235,7 +235,6 @@ public class GameManagerController : MonoBehaviour
 
     public void EnableSelect()
     {
-        Debug.Log(currentLevel);
         backToMain.gameObject.SetActive(true);
         levelSelectMenu.SetActive(true);
          for(int i = 0; i < 15; i++)
