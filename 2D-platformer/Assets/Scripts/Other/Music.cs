@@ -24,15 +24,16 @@ public class Music : MonoBehaviour
         {
             PlayMusic();
             musicClip++;
+            if (musicClip > audioClips.Count)
+            {
+                musicClip = 0;
+            }
         }
     }
 
     private void PlayMusic()
     {
         musicPlayer.PlayOneShot(audioClips[musicClip]);
-        if(musicClip > audioClips.Count)
-        {
-            musicClip = 0;
-        }
+        
     }
 }

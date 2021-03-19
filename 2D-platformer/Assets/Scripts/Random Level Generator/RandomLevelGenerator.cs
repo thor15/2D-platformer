@@ -52,6 +52,9 @@ public class RandomLevelGenerator
         gameManager.currentGroundEnum.Add(PartOfLevel.Ground);
         gameManager.currentGroundPosistions.Add(new Vector3(0, -1, 0));
 
+        int seed = Random.Range(1, 2000);
+        System.Random randomNum = new System.Random(seed);
+
         int numberOfBlocks = Random.Range(10, 21);
 
         GenerateGround groundGeneration = new GenerateGround(numberOfBlocks);
@@ -71,6 +74,7 @@ public class RandomLevelGenerator
                     break;
             }
             lastPlacement = new Vector3(Random.Range(2 + lastPlacement.x, maxDistanceTravled + lastPlacement.x + gameManager.partsOfLevels[(int)levelPart].transform.localScale.x / 2), Random.Range(0, maxJumpHeight -3 - gameManager.partsOfLevels[(int)levelPart].transform.localScale.y / 2), 0);
+            //lastPlacement = new Vector3(randomNum.Next(0, 80), randomNum.Next(0, 30), 0);
             //lastPlacement = new Vector3(Random.Range(2 + lastPlacement.x, maxDistanceTravled + lastPlacement.x + gameManager.partsOfLevels[(int)levelPart].transform.localScale.x / 2),
                 //groundHeight[i].getPoint().y * 20, 0);
             gameManager.currentGroundPosistions.Add(lastPlacement);

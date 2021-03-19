@@ -74,6 +74,7 @@ public class RandomGameManager : MonoBehaviour
         }
         currentGroundPosistions = new List<Vector3>();
         currentGroundEnum = new List<PartOfLevel>();
+        currentCoinPositions = new List<Vector3>();
     }
 
     public void BuildNewLevel()
