@@ -86,13 +86,23 @@ public class RandomLevelGenerator
 
         for(int i = 0; i < gameManager.currentGroundEnum.Count; i++)
         {
+            int side = Random.Range(1, 4);
+
             if (gameManager.currentGroundEnum[i] == PartOfLevel.Ground && gameManager.currentGroundPosistions[i].x != 0)
             {
-                gameManager.currentGroundEnum.Add(PartOfLevel.Spike);
-                gameManager.currentGroundPosistions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x-3, gameManager.currentGroundPosistions[i].x + 3),
-                    gameManager.currentGroundPosistions[i].y+1,0));
+                if (side == 1)
+                {
+                    gameManager.currentGroundEnum.Add(PartOfLevel.Spike);
+                    gameManager.currentGroundPosistions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x - 3, gameManager.currentGroundPosistions[i].x + 3),
+                        gameManager.currentGroundPosistions[i].y + 1, 0));
+                }
+                if(side == 2)
+                {
+                    gameManager.currentCoinPositions.Add(new Vector3(Random.Range(gameManager.currentGroundPosistions[i].x - 3, gameManager.currentGroundPosistions[i].x + 3),
+                        gameManager.currentGroundPosistions[i].y + 1, 0));
+                }
             }
-            int side = Random.Range(1, 4);
+            
             if (gameManager.currentGroundEnum[i] == PartOfLevel.Wall)
             {
                 if (side == 1)
