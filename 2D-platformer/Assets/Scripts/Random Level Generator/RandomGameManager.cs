@@ -18,7 +18,14 @@ public class RandomGameManager : MonoBehaviour
     private List<GameObject> objectsToRemove = new List<GameObject>();
 
     // Start is called before the first frame update
-    void Awake()
+    /*void Awake()
+    {
+        levelGenerator = new RandomLevelGenerator(player.playerSpeed, player.jumpHeight, this);
+        levelGenerator.RandomlyCreateLevel();
+        CreateRandomLevel();
+    }*/
+
+    public void OnStart()
     {
         levelGenerator = new RandomLevelGenerator(player.playerSpeed, player.jumpHeight, this);
         levelGenerator.RandomlyCreateLevel();

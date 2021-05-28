@@ -3,11 +3,13 @@ using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 
+//if can't find file replace the text in combine with Application.persistentDataPath
+
 public static class FileManager
 {
     public static bool WriteToFile(string a_FileName, string a_FileContents)
     {
-        var fullPath = Path.Combine(Application.persistentDataPath, a_FileName);
+        var fullPath = a_FileName;//Path.Combine("\\aiden\\Unity\\2D-platformer\\2D-platformer\\Assets\\Scripts\\Global", a_FileName);
 
         try
         {
@@ -23,7 +25,7 @@ public static class FileManager
 
     public static bool LoadFromFile(string a_FileName, out string result)
     {
-        var fullPath = Path.Combine(Application.persistentDataPath, a_FileName);
+        var fullPath = a_FileName;//Path.Combine("\\aiden\\Unity\\2D-platformer\\2D-platformer", a_FileName);
 
         try
         {

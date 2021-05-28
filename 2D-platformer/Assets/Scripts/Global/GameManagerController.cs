@@ -96,6 +96,7 @@ public class GameManagerController : MonoBehaviour
             else
             {
                 randomGameManager.gameObject.SetActive(true);
+                randomGameManager.OnStart();
             }
         }
 
@@ -135,6 +136,7 @@ public class GameManagerController : MonoBehaviour
         if (selectedLevel == 15)
         {
             randomGameManager.gameObject.SetActive(true);
+            randomGameManager.OnStart();
         }
         levelSelectMenu.SetActive(false);
         playerGameObject.SetActive(true);

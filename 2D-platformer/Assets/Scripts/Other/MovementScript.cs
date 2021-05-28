@@ -10,6 +10,7 @@ public class MovementScript : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     private Rigidbody personRB;
     private bool isOnGround;
+    public int jump = 1;
     private Vector3 offest;
     public bool canEndLevel = false;
     public int coinCount = 0;
@@ -37,9 +38,10 @@ public class MovementScript : MonoBehaviour
         {
             transform.Translate(Vector3.right * playerSpeed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.W) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.W) && isOnGround && jump > 0)
         {
             personRB.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            jump--;
             isOnGround = false;
         }
                 
@@ -51,16 +53,17 @@ public class MovementScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            jump++;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    /*private void OnCollisionExit(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = false;
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
