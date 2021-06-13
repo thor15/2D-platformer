@@ -80,13 +80,17 @@ public class GameManagerController : MonoBehaviour
         {
             selectedLevel++;
             RemoveLevel();
-            if (selectedLevel < 15)
+            if((selectedLevel <= 15))
             {
                 if (selectedLevel > currentLevel)
                 {
                     currentLevel++;
                     Debug.Log(currentLevel + "   " + selectedLevel);
                 }
+            }
+            if (selectedLevel < 15)
+            {
+                
                 player.canEndLevel = false;
                 counter.count = false;
                 counter.gameObject.SetActive(false);
@@ -196,15 +200,23 @@ public class GameManagerController : MonoBehaviour
 
     public void Continue()
     {
-        selectedLevel = currentLevel;
-        if(selectedLevel != 0)
+        if (currentLevel == 15)
         {
-            tutorailObject.SetActive(false);
+            randomGameManager.gameObject.SetActive(true);
+            randomGameManager.OnStart();
         }
-        DisableMainMenu();
-        createLevel();
-        pauseButton.gameObject.SetActive(true);
-        playerGameObject.SetActive(true);
+        else
+        {
+            selectedLevel = currentLevel;
+            if (selectedLevel != 0)
+            {
+                tutorailObject.SetActive(false);
+            }
+            DisableMainMenu();
+            createLevel();
+            pauseButton.gameObject.SetActive(true);
+            playerGameObject.SetActive(true);
+        }
     }
 
     public void DisableMainMenu()

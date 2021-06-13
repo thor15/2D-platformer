@@ -11,8 +11,6 @@ ScriptsOnlyBuild:
     - SelectALevel
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -124,6 +122,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 210
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -430,7 +430,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 138c67c6a6d2b29c7ec6413529444b27
+      Hash: 670f0c89388963dc3af375532e5390d6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MovementScript
@@ -719,4 +719,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: D:/aiden/Unity/2D-platformer.exe
+  playerPath: D:/aiden/Game/2D-platformer.exe

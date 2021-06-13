@@ -1054,6 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1767514109}
+  jump: 1
   canEndLevel: 0
   coinCount: 0
   playerSpeed: 3

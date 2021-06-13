@@ -25,7 +25,7 @@ public static class FileManager
 
     public static bool LoadFromFile(string a_FileName, out string result)
     {
-        var fullPath = a_FileName;//Path.Combine("\\aiden\\Unity\\2D-platformer\\2D-platformer", a_FileName);
+        var fullPath = a_FileName;// Path.Combine("\\aiden\\Unity\\2D-platformer\\2D-platformer", a_FileName);
 
         try
         {
