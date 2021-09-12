@@ -30,6 +30,7 @@ public class GameManagerController : MonoBehaviour
 
     public GameObject tutorailObject;
 
+    public GameObject credits;
     public GameObject levelSelectMenu;
     public Button backToMain;
     public Button recreateLevel;
@@ -279,9 +280,16 @@ public class GameManagerController : MonoBehaviour
         randomGameManager.RemoveLevel();
         recreateLevel.gameObject.SetActive(false);
         randomGameManager.gameObject.SetActive(false);
-        
+        credits.SetActive(false);
+
+
     }
 
-
+    public void ShowCredits()
+    {
+        mainMenu.gameObject.SetActive(false);
+        credits.SetActive(true);
+        backToMain.gameObject.SetActive(true);
+    }
     
 }

@@ -11,6 +11,8 @@ ScriptsOnlyBuild:
     - SelectALevel
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -394,7 +396,7 @@ ScriptsOnlyBuild:
     className: TileGeneration
   - hash:
       serializedVersion: 2
-      Hash: a8d3184ebeb20b35723a237f5de2caa6
+      Hash: 9be38ff73ed6bfc9461911fc58d4fe76
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManagerController
